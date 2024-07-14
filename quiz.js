@@ -1,16 +1,17 @@
-function checkAnswer(){
-    correctAnswer="4";
-
-let userAnswer = document.querySelector('input[name="quiz"]:checked').value;
-// if(userAnswer){
-    if(userAnswer==correctAnswer){
-        document.getElementById('feedback').textContent="correct! Well done";
-    }else{
-        document.getElementById('feedback').textContent="That is incorrect.Try again!"
+function checkAnswer() {
+    const correctAnswer = "4";
+    
+    const userAnswerElement = document.querySelector('input[name="quiz"]:checked');
+    if (userAnswerElement) {
+        const userAnswer = userAnswerElement.value;
+        if (userAnswer === correctAnswer) {
+            document.getElementById('feedback').textContent = "Correct! Well done.";
+        } else {
+            document.getElementById('feedback').textContent = "That's incorrect. Try again!";
+        }
+    } else {
+        document.getElementById('feedback').textContent = "Please select an answer.";
     }
 }
-// else{
-//     document.getElementById('feedback').textContent="Please Select an answer."
-// }
-// }
-// document.getElementById('submit-answer').addEventListener('click',checkAnswer)
+
+document.getElementById('submit-answer').addEventListener('click', checkAnswer);
